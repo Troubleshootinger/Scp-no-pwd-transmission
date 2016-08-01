@@ -15,3 +15,13 @@ expect \"password:\"
 send \"${pwdd}\r\"
 expect eof
 "
+##################################################################
+
+远程执行命令
+
+#!/bin/bash  
+ssh root@192.168.0.23   << remotessh  
+killall -9 java  
+cd /data/apache-tomcat-7.0.53/webapps/  
+exit  
+remotessh
