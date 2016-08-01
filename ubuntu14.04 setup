@@ -1,0 +1,17 @@
+apt-get install -y expect
+
+##########################javascript##############################
+
+
+#/bin/bash
+
+read -p "Enter your IP  " IP
+read -p "Enter your User name  " name
+read -p "Enter your files path  " path
+read -p "Enter your pwd  " pwdd
+expect -c "
+spawn scp -r ${path} ${name}@${IP}:/home/${name}
+expect \"password:\"
+send \"${pwdd}\r\"
+expect eof
+"
